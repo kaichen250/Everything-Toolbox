@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" GeneratedByTileIconifier="true">
+	<VisualElements 
+		ShowNameOnSquare150x150Logo="on" 
+		Square150x150Logo="Assets\VisualElements.png" 
+		Square70x70Logo="Assets\VisualElements-mini.png" 
+		SmallLogo="Assets\VisualElements-mini.png"
+		Square44x44Logo="Assets\VisualElements-mini.png"
+		ForegroundText="light" 
+		BackgroundColor="#D43131" 
+		TileIconifierColorSelection="Custom" 
+		TileIconifierCreatedWithUpgrade="true">
+		<SplashScreen Image="VisualElements\SplashScreen.png" BackgroundColor="#0078d7" />
+	</VisualElements>
+</Application>

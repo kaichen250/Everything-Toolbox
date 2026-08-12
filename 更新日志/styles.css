@@ -1,0 +1,1045 @@
+/* 
+ * 更新日志应用样式文件
+ * 采用 Windows Aero 玻璃风格设计 - 精致版
+ */
+
+/* ============================================
+   CSS变量定义 - Aero 主题配置
+   ============================================ */
+:root {
+    /* Aero 蓝色系主色调 */
+    --aero-blue: #0078d4;
+    --aero-blue-light: #40a0ff;
+    --aero-blue-dark: #005a9e;
+    --aero-glow: rgba(0, 120, 212, 0.5);
+    
+    /* 玻璃效果颜色 - 适中透明 */
+    --glass-white: rgba(255, 255, 255, 0.55);
+    --glass-white-light: rgba(255, 255, 255, 0.65);
+    --glass-border: rgba(255, 255, 255, 0.6);
+    --glass-border-strong: rgba(255, 255, 255, 0.8);
+    
+    /* 背景和文本颜色 */
+    --bg-color: transparent;
+    --bg-elevated: rgba(255, 255, 255, 0.9);
+    --bg-glass: rgba(255, 255, 255, 0.75);
+    
+    /* 文本颜色系统 */
+    --text-primary: #1a1a1a;
+    --text-secondary: #4a4a4a;
+    --text-tertiary: #6a6a6a;
+    
+    /* 边框颜色 */
+    --border-color: rgba(255, 255, 255, 0.8);
+    --border-light: rgba(255, 255, 255, 0.5);
+    
+    /* Aero 阴影系统 - 拟物感 */
+    --shadow-sm: 
+        0 2px 4px rgba(0, 0, 0, 0.1),
+        0 4px 8px rgba(0, 0, 0, 0.08),
+        0 0 0 1px rgba(255, 255, 255, 0.5) inset,
+        0 1px 0 rgba(255, 255, 255, 0.6) inset;
+    --shadow-md: 
+        0 4px 8px rgba(0, 0, 0, 0.12),
+        0 8px 16px rgba(0, 0, 0, 0.1),
+        0 0 0 1px rgba(255, 255, 255, 0.5) inset,
+        0 1px 0 rgba(255, 255, 255, 0.7) inset;
+    --shadow-lg: 
+        0 8px 16px rgba(0, 0, 0, 0.15),
+        0 16px 32px rgba(0, 0, 0, 0.12),
+        0 0 0 1px rgba(255, 255, 255, 0.6) inset,
+        0 1px 0 rgba(255, 255, 255, 0.8) inset;
+    --shadow-glow: 0 0 30px rgba(0, 120, 212, 0.25), 0 0 60px rgba(0, 120, 212, 0.1);
+    
+    /* 拟物感渐变 - 更透明，不遮挡背景 */
+    --skeuo-gradient: linear-gradient(180deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.15) 50%, transparent 100%);
+    --skeuo-gradient-reverse: linear-gradient(0deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.15) 50%, transparent 100%);
+    
+    /* 圆角系统 - Aero 风格 */
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 14px;
+    --radius-xl: 20px;
+    
+    /* 版本类型颜色系统 */
+    --color-red: #dc2626;
+    --color-regular: #16a34a;
+    --color-special: #ea580c;
+    --color-pink: #ec4899;
+    --color-red-middle: #ef4444;
+    --color-green-middle: #22c55e;
+    --color-gold-middle: #f59e0b;
+    --color-pink-middle: #ec4899;
+}
+
+/* ============================================
+   深色模式变量 - Aero Dark
+   ============================================ */
+.dark-mode {
+    /* Aero 深色主色调 */
+    --aero-blue: #38bdf8;
+    --aero-blue-light: #7dd3fc;
+    --aero-blue-dark: #0ea5e9;
+    --aero-glow: rgba(56, 189, 248, 0.5);
+    
+    /* 深色玻璃效果 - 适中透明 */
+    --glass-white: rgba(15, 23, 42, 0.6);
+    --glass-white-light: rgba(30, 41, 59, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.25);
+    --glass-border-strong: rgba(255, 255, 255, 0.4);
+    
+    /* 深色背景 */
+    --bg-color: transparent;
+    --bg-elevated: rgba(30, 30, 46, 0.9);
+    --bg-glass: rgba(35, 35, 52, 0.7);
+    
+    /* 深色文本 */
+    --text-primary: #f8fafc;
+    --text-secondary: #cbd5e1;
+    --text-tertiary: #94a3b8;
+    
+    /* 深色边框 */
+    --border-color: rgba(255, 255, 255, 0.15);
+    --border-light: rgba(255, 255, 255, 0.1);
+    
+    /* 深色阴影 */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.08) inset;
+    --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.15) inset;
+    --shadow-glow: 0 0 30px rgba(56, 189, 248, 0.2), 0 0 60px rgba(56, 189, 248, 0.08);
+    
+    /* 深色版本颜色 */
+    --color-major: #f87171;
+    --color-major-light: rgba(248, 113, 113, 0.2);
+    --color-regular: #4ade80;
+    --color-regular-light: rgba(74, 222, 128, 0.2);
+    --color-special: #fb923c;
+    --color-special-light: rgba(251, 146, 60, 0.2);
+}
+
+/* ============================================
+   全局重置和基础样式
+   ============================================ */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', 'Microsoft YaHei', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background: var(--bg-color);
+    min-height: 100vh;
+    padding-bottom: 100px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--aero-blue);
+    transition: all 0.2s ease;
+}
+
+a:hover {
+    color: var(--aero-blue-light);
+}
+
+/* ============================================
+   背景容器样式
+   ============================================ */
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.background-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.background-layer.current {
+    opacity: 1;
+    z-index: 1;
+}
+
+.background-layer.next {
+    opacity: 0;
+    z-index: 0;
+}
+
+/* ============================================
+   滚动条样式 - Aero 风格
+   ============================================ */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+/* ============================================
+   布局容器
+   ============================================ */
+.container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ============================================
+   头部区域 - 拟物 Aero 玻璃效果
+   ============================================ */
+header {
+    text-align: center;
+    padding: 40px 32px;
+    margin: 24px auto 32px auto;
+    max-width: 700px;
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-xl);
+    background: 
+        var(--skeuo-gradient),
+        linear-gradient(135deg, var(--glass-white) 0%, var(--glass-white-light) 100%);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid var(--glass-border);
+    box-shadow: 
+        var(--shadow-lg),
+        0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 40%;
+    background: var(--skeuo-gradient);
+    border-radius: inherit;
+    pointer-events: none;
+}
+
+header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.1), transparent);
+}
+
+header h1 {
+    font-size: clamp(26px, 4vw, 36px);
+    font-weight: 300;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+}
+
+header h1::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 2px;
+    margin: 12px auto 0;
+    background: var(--aero-blue);
+    border-radius: 1px;
+    box-shadow: 0 0 10px var(--aero-glow);
+}
+
+.header-subtitle {
+    color: var(--text-secondary);
+    font-size: clamp(13px, 1.6vw, 15px);
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+/* ============================================
+   主题切换按钮 - 精致 Aero 风格
+   ============================================ */
+.theme-toggle {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: 
+        var(--skeuo-gradient),
+        linear-gradient(135deg, var(--glass-white) 0%, var(--glass-white-light) 100%);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    border: 1px solid var(--glass-border);
+    cursor: pointer;
+    z-index: 1003;
+    transition: all 0.25s ease;
+    box-shadow: 
+        var(--shadow-sm),
+        0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.theme-toggle::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    height: 45%;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, transparent 100%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.theme-toggle:hover {
+    background: 
+        linear-gradient(180deg, rgba(255,255,255,0.3) 0%, transparent 50%),
+        linear-gradient(135deg, var(--aero-blue) 0%, var(--aero-blue-light) 100%);
+    color: white;
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 
+        0 8px 24px rgba(0, 120, 212, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.4) inset,
+        0 2px 4px rgba(0, 0, 0, 0.2) inset;
+}
+
+.theme-toggle:active {
+    transform: translateY(1px) scale(0.98);
+    box-shadow: 
+        0 2px 4px rgba(0, 0, 0, 0.2) inset,
+        0 1px 2px rgba(0, 0, 0, 0.3) inset;
+}
+
+/* ============================================
+   音乐播放器按钮 - 精致 Aero 风格
+   ============================================ */
+.music-toggle {
+    position: fixed;
+    top: 16px;
+    right: 68px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: 
+        var(--skeuo-gradient),
+        linear-gradient(135deg, var(--glass-white) 0%, var(--glass-white-light) 100%);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    border: 1px solid var(--glass-border);
+    cursor: pointer;
+    z-index: 1003;
+    transition: all 0.25s ease;
+    box-shadow: 
+        var(--shadow-sm),
+        0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.music-toggle::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    height: 45%;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, transparent 100%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.music-toggle:hover {
+    background: 
+        linear-gradient(180deg, rgba(255,255,255,0.3) 0%, transparent 50%),
+        linear-gradient(135deg, #e91e63 0%, #f06292 100%);
+    color: white;
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 
+        0 8px 24px rgba(233, 30, 99, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.4) inset,
+        0 2px 4px rgba(0, 0, 0, 0.2) inset;
+}
+
+.music-toggle:active {
+    transform: translateY(1px) scale(0.98);
+    box-shadow: 
+        0 2px 4px rgba(0, 0, 0, 0.2) inset,
+        0 1px 2px rgba(0, 0, 0, 0.3) inset;
+}
+
+.music-toggle.playing {
+    background: 
+        linear-gradient(180deg, rgba(255,255,255,0.3) 0%, transparent 50%),
+        linear-gradient(135deg, #e91e63 0%, #f06292 100%);
+    color: white;
+    animation: music-pulse 2s ease-in-out infinite;
+}
+
+@keyframes music-pulse {
+    0%, 100% {
+        box-shadow: 
+            0 0 0 0 rgba(233, 30, 99, 0.4),
+            var(--shadow-sm);
+    }
+    50% {
+        box-shadow: 
+            0 0 0 10px rgba(233, 30, 99, 0),
+            var(--shadow-sm);
+    }
+}
+
+/* ============================================
+   音乐播放器容器 - 精致 Aero 风格
+   ============================================ */
+.music-player-container {
+    position: fixed;
+    top: 68px;
+    right: 16px;
+    width: 310px;
+    background: 
+        var(--skeuo-gradient),
+        linear-gradient(135deg, var(--glass-white) 0%, var(--glass-white-light) 100%);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    z-index: 1002;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px) scale(0.95);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+}
+
+.music-player-container.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+.music-player-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 40%;
+    background: var(--skeuo-gradient);
+    border-radius: inherit;
+    pointer-events: none;
+}
+
+.music-player-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--glass-border);
+    position: relative;
+}
+
+.music-player-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.music-player-close {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid var(--glass-border);
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.music-player-close:hover {
+    background: rgba(233, 30, 99, 0.2);
+    color: #e91e63;
+    border-color: rgba(233, 30, 99, 0.3);
+}
+
+.music-player-container iframe {
+    display: block;
+    width: 100%;
+    height: 90px;
+    border: none;
+}
+
+/* ============================================
+   年份分组组件 - 精致 Aero 风格
+   ============================================ */
+.year-group {
+    margin-top: 24px;
+    border-radius: var(--radius-xl);
+    overflow: visible;
+}
+
+.year-header {
+    cursor: pointer;
+    user-select: none;
+}
+
+.year-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    background: 
+        var(--skeuo-gradient),
+        linear-gradient(135deg, var(--glass-white) 0%, var(--glass-white-light) 100%);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-sm);
+    transition: all 0.25s ease;
+}
+
+.year-title::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: var(--skeuo-gradient);
+    border-radius: inherit;
+    pointer-events: none;
+}
+
+.year-title:hover {
+    background: 
+        var(--skeuo-gradient),
+        linear-gradient(135deg, var(--glass-white-light) 0%, var(--glass-white) 100%);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.year-icon {
+    transition: transform 0.3s ease;
+    font-size: 13px;
+    color: var(--aero-blue);
+}
+
+.year-count {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-left: auto;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 3px 10px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.year-content {
+    overflow: hidden;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 1;
+    height: auto;
+    max-height: none;
+    padding-top: 16px;
+}
+
+.year-content.collapsed {
+    opacity: 0;
+    height: 0;
+    padding-top: 0;
+}
+
+/* ============================================
+   更新列表 - 精致 Aero 风格
+   ============================================ */
+.update-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.update-item {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 28px;
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-xl);
+    background: 
+        var(--skeuo-gradient),
+        linear-gradient(135deg, var(--glass-white) 0%, var(--glass-white-light) 100%);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-md);
+    transition: all 0.25s ease;
+}
+
+.update-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 45%;
+    background: var(--skeuo-gradient);
+    border-radius: inherit;
+    pointer-events: none;
+}
+
+.update-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.08), transparent);
+}
+
+.update-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+.color-red {
+    --section-color: var(--color-red);
+    --section-bg: var(--color-red-light);
+    border-left: 3px solid var(--color-red);
+}
+
+.color-green {
+    --section-color: var(--color-regular);
+    --section-bg: var(--color-regular-light);
+    border-left: 3px solid var(--color-regular);
+}
+
+.color-gold {
+    --section-color: var(--color-special);
+    --section-bg: var(--color-special-light);
+    border-left: 3px solid var(--color-special);
+}
+
+.color-pink {
+    --section-color: var(--color-pink);
+    --section-bg: rgba(236, 72, 153, 0.15);
+    border-left: 3px solid var(--color-pink);
+}
+
+/* ============================================
+   更新内容样式 - 精致 Aero 风格
+   ============================================ */
+.update-banner {
+    width: 100%;
+    height: auto;
+    max-height: 350px;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    margin-bottom: 20px;
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.update-item:hover .update-banner {
+    transform: scale(1.005);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+.update-date {
+    font-size: clamp(15px, 1.6vw, 17px);
+    font-weight: 600;
+    margin: 0 0 16px 0;
+    padding: 8px 16px;
+    background: var(--section-bg);
+    border-radius: 20px;
+    color: var(--section-color);
+    display: inline-block;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.update-section {
+    margin-bottom: 20px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.update-section:last-child {
+    margin-bottom: 0;
+}
+
+.update-title {
+    font-size: clamp(15px, 1.5vw, 17px);
+    font-weight: 600;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    position: relative;
+    color: var(--section-color);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.update-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 35px;
+    height: 2px;
+    background: var(--section-color);
+    border-radius: 1px;
+    opacity: 0.6;
+}
+
+.update-title-icon {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    font-size: 14px;
+    color: var(--section-color);
+}
+
+.update-count {
+    font-size: 12px;
+    color: var(--text-tertiary);
+    font-weight: 500;
+    margin-left: auto;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2px 8px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.update-content {
+    font-size: 14px;
+    color: var(--text-primary);
+    line-height: 1.7;
+}
+
+.update-list-item {
+    font-size: 14px;
+    line-height: 1.75;
+    color: var(--text-primary);
+    padding-left: 20px;
+    margin-bottom: 10px;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.update-list-item:last-child {
+    margin-bottom: 0;
+}
+
+.update-list-item::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 9px;
+    width: 6px;
+    height: 6px;
+    background: var(--section-color);
+    border-radius: 50%;
+    opacity: 0.8;
+}
+
+.update-list-item:hover {
+    color: var(--section-color);
+}
+
+/* ============================================
+   版本徽章 - 精致 Aero 风格
+   ============================================ */
+.version-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 600;
+    margin-left: 8px;
+    background: var(--section-bg);
+    border: 1px solid var(--section-color);
+    color: var(--section-color);
+    opacity: 0.9;
+}
+
+/* ============================================
+   返回顶部按钮 - 精致 Aero 风格
+   ============================================ */
+.back-to-top {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: 
+        var(--skeuo-gradient),
+        linear-gradient(135deg, var(--glass-white) 0%, var(--glass-white-light) 100%);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    color: var(--aero-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    border: 1px solid var(--glass-border);
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.25s ease;
+    z-index: 1000;
+    box-shadow: var(--shadow-md);
+}
+
+.back-to-top::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    height: 45%;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, transparent 100%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.back-to-top:hover {
+    background: 
+        linear-gradient(180deg, rgba(255,255,255,0.3) 0%, transparent 50%),
+        linear-gradient(135deg, var(--aero-blue) 0%, var(--aero-blue-light) 100%);
+    color: white;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 
+        0 10px 30px rgba(0, 120, 212, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.4) inset,
+        0 2px 4px rgba(0, 0, 0, 0.2) inset;
+}
+
+.back-to-top:active {
+    transform: translateY(1px) scale(0.98);
+    box-shadow: 
+        0 2px 4px rgba(0, 0, 0, 0.2) inset,
+        0 1px 2px rgba(0, 0, 0, 0.3) inset;
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ============================================
+   页脚 - 拟物 Aero 风格
+   ============================================ */
+footer {
+    margin: 0 auto;
+    padding: 14px 32px;
+    text-align: center;
+    position: fixed;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 24px;
+    z-index: 100;
+    max-width: 90%;
+    background: 
+        var(--skeuo-gradient),
+        linear-gradient(135deg, var(--glass-white) 0%, var(--glass-white-light) 100%);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-md);
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: var(--skeuo-gradient);
+    border-radius: inherit;
+    pointer-events: none;
+}
+
+.copyright {
+    font-size: 12px;
+    color: var(--text-secondary);
+    font-weight: 400;
+}
+
+.copyright:hover {
+    color: var(--aero-blue);
+}
+
+/* ============================================
+   响应式设计
+   ============================================ */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 16px;
+    }
+    
+    header {
+        padding: 32px 24px;
+        margin: 20px auto 28px auto;
+    }
+    
+    header h1 {
+        font-size: 24px;
+    }
+    
+    .update-item {
+        padding: 22px;
+        margin-top: 16px;
+        margin-bottom: 16px;
+    }
+    
+    .update-section {
+        padding: 16px;
+    }
+    
+    .year-title {
+        padding: 12px 16px;
+    }
+
+    .theme-toggle {
+        top: 12px;
+        right: 12px;
+        width: 38px;
+        height: 38px;
+    }
+    
+    .music-toggle {
+        top: 12px;
+        right: 56px;
+        width: 38px;
+        height: 38px;
+        font-size: 14px;
+    }
+    
+    .music-player-container {
+        top: 58px;
+        right: 12px;
+        width: calc(100vw - 24px);
+        max-width: 330px;
+    }
+    
+    .back-to-top {
+        right: 16px;
+        bottom: 80px;
+        width: 42px;
+        height: 42px;
+    }
+    
+    footer {
+        padding: 12px 24px;
+        bottom: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 12px;
+    }
+    
+    header {
+        padding: 24px 20px;
+        border-radius: var(--radius-lg);
+    }
+    
+    header h1 {
+        font-size: 22px;
+    }
+    
+    .update-item {
+        padding: 18px;
+        border-radius: var(--radius-lg);
+    }
+    
+    .update-date {
+        font-size: 14px;
+        padding: 6px 14px;
+    }
+    
+    .update-section {
+        padding: 14px;
+        border-radius: var(--radius-md);
+    }
+    
+    .update-title {
+        font-size: 14px;
+    }
+    
+    .year-title {
+        font-size: 15px;
+        padding: 10px 14px;
+    }
+    
+    .year-count {
+        font-size: 11px;
+        padding: 2px 8px;
+    }
+}
